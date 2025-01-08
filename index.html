@@ -16,16 +16,16 @@
          -->
         <form action="https://register-demo.freecodecamp.org" method="post"></form>
         <!-- First fieldset will hold name, email, and password -->
-        <fieldset></fieldset>
-            <label for="first-name">Enter Your First Name: <input id="first-name" type="text" required /></label>
-            <label for="last-name">Enter Your Last Name: <input id="last-name" type="text" required /></label>
-            <label for="email">Enter Your Email: <input id="email" type="email" required /></label>
+        <fieldset>
+            <label for="first-name">Enter Your First Name: <input id="first-name" type="text" name="fname" required /></label>
+            <label for="last-name">Enter Your Last Name: <input id="last-name" type="text" name="lname" required /></label>
+            <label for="email">Enter Your Email: <input id="email" type="email" name="e-mail" required /></label>
             <!--
                 - the "pattern" attribute allows to define an expression that the password must follow
                 - in this case, letters a to z, digits 0 to 5, and at least 8 characters 
             -->
-            <label for="new-password">Create a New Password: <input id="new-password" type="password" pattern="[a-z0-5]{8,}" required /></label>
-        
+            <label for="new-password">Create a New Password: <input id="new-password" type="password" pattern="[a-z0-5]{8,}" name="password" required /></label>
+        </fieldset>
             <!--  
                 - Next fieldset is for "what kind of account is the user opening"
                     - choosing between a either a "Personal" or a "Business" acocunt
@@ -34,18 +34,39 @@
             -->
         <fieldset>
             <legend>Account Type (required)</legend>
-            <label for="personal-account"><input type="radio" name="account-type" id="personal-account"> Personal</label>
-            <label for="business-account"><input type="radio" name="account-type" id="business-account"> Business</label>
+            <label for="personal-account"><input type="radio" name="account-type" id="personal-account" name="paccount" class="inline" checked> Personal</label>
+            <label for="business-account"><input type="radio" name="account-type" id="business-account" name="baccount" class="inline" > Business</label>
         </fieldset>
         <!--
-            - if the user would like to upload a profile picture
+            - if the user would like to upload a profile picture.
+            - <select> element creates a dropdown menu, along with 
+              <option>s 
         -->
         <fieldset>
-            <label>Upload a Profile Picture: <input type="file"></label>
-            <label>Input Your Age (Years): <input min="13" max="120" type="number" required></label>
+            <label for="profile-picture">Upload a Profile Picture: <input type="file" id="profile-picture" name="profpic"></label>
+            <label for="age">Input Your Age (Years): <input min="13" max="120" type="number" id="age" name="user-age" required></label>
+            <label for="referrer">How did you hear about us?
+                <select id="referrer" name="refer">
+                    <option value="">(select one)</option>
+                    <option value="1">freeCodeCamp News</option>
+                    <option value="2">freeCodeCamp YouTube Channel</option>
+                    <option value="3">freeCodeCamp Forum</option>
+                    <option value="4">Other</option>
+                </select>
+            </label>
+            
+            <!--
+                - below is for the text box of the bio.
+                - placeholder attribute allows for a a text to be a 
+                place holder in the text box, until the user begins to 
+                write something.
+            -->
+            <label for="bio">Provide a bio:
+                <textarea id="bio" rows="3" cols="30" placeholder="I like coding on the beach..." name="biography"></textarea>
+            </label>
         </fieldset>
 
-        <label for="terms-and-conditions"><input type="checkbox" id="terms-and-conditions" required> I Accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">Terms and Condtions</a></label>
+        <label for="terms-and-conditions"><input class="inline" type="checkbox" id="terms-and-conditions" name="t-and-c" required> I Accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">Terms and Condtions</a></label>
         <input type="submit" value="Submit" />
     </body>
 </html>
